@@ -27,7 +27,7 @@ class VideoProcessor(VideoProcessorBase):
         scaler_minmax_path = 'models/scaler_minmax.npy'
         self.min, self.max = np.load(scaler_minmax_path)
         
-        self.prediction = None
+        self.prediction = '❌'
         self.counter = 0
         self.start = time.time()
         self.fps = 0
