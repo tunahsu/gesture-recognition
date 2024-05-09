@@ -1,0 +1,9 @@
+*.jpg
+*.png
+*.mp4
+*.avi
+*.pem
+.env
+
+runs/
+__pycache__/
