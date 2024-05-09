@@ -84,10 +84,8 @@ def main():
                     st.header(f'Result: {result} | FPS: {round(fps, 2)}')
                     if img_pred is not None:
                         st.image(img_pred, use_column_width='always', channels='BGR')
-
-                time.sleep(0.001)
-                placeholder.empty()
-
+        
+            time.sleep(0.001)
 
 if __name__ == '__main__':
     main()
