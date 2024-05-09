@@ -1,5 +1,3 @@
-
-import os
 import av
 import time
 import threading
@@ -10,16 +8,9 @@ import streamlit as st
 import numpy as np
 
 from streamlit_webrtc import webrtc_streamer, VideoProcessorBase
-from twilio.rest import Client
-from dotenv import load_dotenv
 from utils.keypoint import DetectHandKeypoint
 from utils.classifier import Classifier
 
-
-# STUN/TURN server API
-load_dotenv()
-client = Client(os.environ['TWILIO_ACCOUNT_SID'], os.environ['TWILIO_AUTH_TOKEN'])
-token = client.tokens.create()
 
 # Passing the values between inside and outside the callback
 lock = threading.Lock()
@@ -73,7 +64,7 @@ def main():
             },
             rtc_configuration={
                 # STUN/TURN server is required
-                'iceServers': token.ice_servers
+                'iceServers': [{"urls": ["stun:stun.l.google.com:19302"]}]
             },
         )
         
